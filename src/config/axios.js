@@ -1,10 +1,8 @@
 import axios from 'axios'
 import Element from 'element-ui'
-import store from '../store';
-import router from '../router'
 
 // default baseUrl
-axios.defaults.baseURL= "https://markhub-backend.herokuapp.com/";
+axios.defaults.baseURL = 'https://markhub-backend.herokuapp.com/'
 
 // request interceptor
 axios.interceptors.request.use(config => {
@@ -12,16 +10,16 @@ axios.interceptors.request.use(config => {
 })
 
 // response interceptor
-axios.interceptors.response.use(response=>{
-    let res = response.data;
-    if(res.status == "success"){
+axios.interceptors.response.use(response => {
+    let res = response.data
+    if (res.status == 'success') {
       return response
-    }else{
-      Element.Message.error(res.data.errMsg, {duration : 2*1000})
+    } else {
+      Element.Message.error(res.data.errMsg, {duration: 2 * 1000})
       return Promise.reject(res.data.errMsg)
     }
 
-  },error=>{
+  }, error => {
     if (error.response.data) {
       error.message = error.response.data.msg
       console.log(error.message)
@@ -29,5 +27,4 @@ axios.interceptors.response.use(response=>{
     Element.Message.error(error.message)
     return Promise.reject(error)
   }
-
 )
