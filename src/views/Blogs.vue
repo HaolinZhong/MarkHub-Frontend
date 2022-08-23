@@ -133,9 +133,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 .block {
-  margin-top: 20px;
-  margin-left: 300px;
-  margin-right: 350px;
+  margin: 20px 350px 100px 300px;
 }
 
 .mage {
